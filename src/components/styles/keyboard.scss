@@ -55,10 +55,16 @@
             transition: background-color ease-in-out 0.15s;
             flex-direction: row;
             justify-content: space-around;
-  
+            transform: rotateX(20deg);
             &:hover {
               background-color: var(--key-hover);
             }
+            &:active {
+              
+              box-shadow:  none;
+              transform: translateY(2px);
+            }
+            box-shadow: 0 2px 1px black;
           }
   
           &:first-child {

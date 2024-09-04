@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles/keyboard.scss"
 
 
@@ -13,11 +13,17 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
     
     const [isCaps, setIsCaps] = useState<boolean>(false);
     const [isShift, setIsShift] = useState<boolean>(false);
+    const [cursor, setCursor] = useState<number>(0);
 
-    // useEffect(()=>{
-    //     callBack(inputText);
-    //     setInputText("")
-    // }, [callBack, inputText]);
+    const textarea = document.querySelector('textarea');
+
+    useEffect(()=>{
+        if(textarea){
+            textarea.selectionStart = cursor;
+            textarea.selectionEnd = cursor;
+        }
+        
+    }, [cursor, textarea]);
     
     const handleKeyClick = (key: string) => {
         if (key === 'Enter') {
@@ -40,6 +46,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
             handleRegularKey(key);
         }
     };
+
 
     const handleSpaceKey = () => {
         const newContent = get() + '\u00A0';
@@ -79,12 +86,22 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
     };
 
     const handleDeleteKey = () => {
-        const inputText = get();
-        if (inputText.length === 0) {
-            return;
+        if(textarea){
+            textarea.focus();
+            const cursorPosition = textarea.selectionStart;
+            
+            const inputText = get();
+            if (inputText.length === 0 || cursorPosition === 0) {
+                return;
+            }
+            const newContent = inputText.slice(0, cursorPosition - 1) + inputText.slice(cursorPosition, inputText.length);
+            textarea.selectionStart = cursorPosition - 1;
+            textarea.selectionEnd = cursorPosition - 1;
+            setCursor(cursorPosition - 1);
+            set(newContent);
+            
         }
-        const newContent = inputText.slice(0, inputText.length - 1);
-        set(newContent);
+        
     };
 
     const handleShiftKey = () => {
