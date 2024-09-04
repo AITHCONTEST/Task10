@@ -1,0 +1,13 @@
+.butt{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    img{
+        height: 100%;
+        width: 100%;
+        max-width: 40px;
+        min-width: 20px;
+    }
+}

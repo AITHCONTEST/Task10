@@ -1,0 +1,19 @@
+{
+  "about": "ВАШ ГОРОСКОП",
+  "signs": [
+    { "name": "Овен", "englishName": "Aries", "dateRange": "21 мар 19 апр" },
+    { "name": "Телец", "englishName": "Taurus", "dateRange": "20 апр 20 мая" },
+    { "name": "Близнецы", "englishName": "Gemini", "dateRange": "21 мая 20 июня" },
+    { "name": "Рак", "englishName": "Cancer", "dateRange": "21 июня 22 июля" },
+    { "name": "Лев", "englishName": "Leo", "dateRange": "23 июля 22 авг" },
+    { "name": "Дева", "englishName": "Virgo", "dateRange": "23 авг 22 сен" },
+    { "name": "Весы", "englishName": "Libra", "dateRange": "23 сен 22 окт" },
+    { "name": "Скорпион", "englishName": "Scorpio", "dateRange": "23 окт 21 ноя" },
+    { "name": "Стрелец", "englishName": "Sagittarius", "dateRange": "22 ноя 21 дек" },
+    { "name": "Козерог", "englishName": "Capricorn", "dateRange": "22 дек 19 янв" },
+    { "name": "Водолей", "englishName": "Aquarius", "dateRange": "20 янв 18 фев" },
+    { "name": "Рыбы", "englishName": "Pisces", "dateRange": "19 фев 20 мар" }
+  ]
+  
+  
+}

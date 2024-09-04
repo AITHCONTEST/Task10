@@ -1,0 +1,52 @@
+/* /* @font-face {
+  font-family: "Japanese 3017";
+  src: url('./assets/Japanese_3017.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+} */
+@import 'mixins/font-face';
+@import 'mixins/breakpoints';
+@import 'variables';
+
+
+
+
+@font-face {
+  font-family: "Noto Sans M";
+  src: url('./../assets/fonts/NotoSans-Light.ttf') format('truetype');
+
+} 
+
+@font-face {
+  font-family: "Noto Sans L";
+  src: url('./../assets/fonts/NotoSans-SemiBold.ttf') format('truetype');
+
+} 
+
+
+
+#root{
+  color: white;
+  font-family: "Noto Sans M";
+  
+}
+
+a{
+  text-decoration: none;
+  color: aliceblue;
+
+  
+}
+
+@font-face {
+  font-family: "Absurdite";
+  src: url('./assets/Absurdite.otf') format('opentype');
+  
+}
+
+input, textarea, select, a :hover{ outline: none; }
+
+main{
+  min-height: 80vh;
+}

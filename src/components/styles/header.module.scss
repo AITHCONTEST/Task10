@@ -1,0 +1,26 @@
+@import '../../styles/mixins/breakpoints.scss';
+
+.header{
+    font-family: "Noto Sans L";
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    background-color: #7A7A7A;
+    height: 10vh;
+    width: 100%;
+    @include mobile {
+        height: 8vh;
+    }
+    .title{
+        line-height: 8vh;
+        font-size: 5vh;
+        margin-left: 10vw;
+        @include mobile {
+            font-size: 4vh;
+            margin: auto;
+        }
+    }
+    
+    
+}
