@@ -88,13 +88,16 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
     const handleDeleteKey = () => {
         if(textarea){
             textarea.focus();
-            const cursorPosition = textarea.selectionStart;
-            
+            let cursorPosition = textarea.selectionStart;
+            const cursorPositionEnd = textarea.selectionEnd;
             const inputText = get();
-            if (inputText.length === 0 || cursorPosition === 0) {
+            if (inputText.length === 0 || (cursorPosition === 0 && cursorPosition === cursorPositionEnd) ) {
                 return;
             }
-            const newContent = inputText.slice(0, cursorPosition - 1) + inputText.slice(cursorPosition, inputText.length);
+            if(cursorPosition < cursorPositionEnd){
+                cursorPosition += 1;
+            }
+            const newContent = inputText.slice(0, cursorPosition - 1) + inputText.slice(cursorPositionEnd, inputText.length);
             textarea.selectionStart = cursorPosition - 1;
             textarea.selectionEnd = cursorPosition - 1;
             setCursor(cursorPosition - 1);
