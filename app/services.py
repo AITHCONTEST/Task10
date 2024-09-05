@@ -1,7 +1,10 @@
 import requests
 
 async def external_translation_service(text: str, source_language: str, target_language: str) -> str:
-    return text.capitalize()
+    print(source_language)
+    print(target_language)
+    print(text)
+    return text.upper()
     # api_url = ""
     # payload = {
     #     "text": text,

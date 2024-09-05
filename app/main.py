@@ -1,8 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from app.models import TranslationRequest, TranslationResponse
 from app.services import external_translation_service
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
