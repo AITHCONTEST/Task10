@@ -56,6 +56,8 @@
             flex-direction: row;
             justify-content: space-around;
             transform: rotateX(20deg);
+            box-shadow: 0 2px 1px black;
+
             &:hover {
               background-color: var(--key-hover);
             }
@@ -64,7 +66,7 @@
               box-shadow:  none;
               transform: translateY(2px);
             }
-            box-shadow: 0 2px 1px black;
+            
           }
   
           &:first-child {

@@ -1,6 +1,6 @@
 
 interface ITransport{
-    post(text:string, language:string):Promise<string>;
+    post(text:string, from:string, to:string):Promise<string>;
 }
 
 export default ITransport;

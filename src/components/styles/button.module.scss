@@ -4,13 +4,15 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: transform ease-in-out 0.1s;
+    
     img{
         height: 100%;
         width: 100%;
         max-width: 40px;
         min-width: 20px;
     }
-    transition: transform ease-in-out 0.1s;
+    
 }
 
 

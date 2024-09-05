@@ -20,8 +20,8 @@ class TranslateService implements IService{
         return TranslateService.instance;
     }
     
-    public async translate(text:string, language:string):Promise<string>{
-        const response: string = await this.transport.post(text, language);
+    public async translate(text:string, from:string, to:string):Promise<string>{
+        const response: string = await this.transport.post(text, from, to);
         return response;
     }
    

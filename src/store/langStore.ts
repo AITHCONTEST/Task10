@@ -10,8 +10,8 @@ class LangStore implements ILangStore{
     public toLang: string;
 
     private constructor() {
-        this.fromLang = "Русский";
-        this.toLang = "Мансийский";
+        this.fromLang = "ru";
+        this.toLang = "mans";
 
         makeAutoObservable(this);
     }

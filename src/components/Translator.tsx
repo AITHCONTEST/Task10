@@ -23,10 +23,9 @@ const Translator = observer(() => {
     useEffect(()=>{
         const translate = async () => {
             setLoading(true);
-            const lang = langStore.fromLang;
-            const sleep = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms));
-            await sleep(1000);
-            const result = await translateService.translate(input, lang);
+            const fromLang = langStore.fromLang;
+            const toLang = langStore.toLang;
+            const result = await translateService.translate(input, fromLang, toLang);
             setOutput(result);
             setLoading(false);
         }
