@@ -5,7 +5,7 @@
     align-items: center;
     cursor: pointer;
     transition: transform ease-in-out 0.1s;
-    
+    opacity: 0.7;
     img{
         height: 100%;
         width: 100%;
@@ -13,10 +13,13 @@
         min-width: 20px;
     }
     
+    
 }
 
-
+.butt:hover{
+    opacity: 1;
+}
 
 .butt:active{
-    transform: rotateY(180deg);
+    transform: scale(0.9);
 }

@@ -47,6 +47,10 @@ a{
 
 input, textarea, select, a :hover{ outline: none; }
 
+body::-webkit-scrollbar {
+  width: 0;
+}
+
 main{
   min-height: 80vh;
 }
