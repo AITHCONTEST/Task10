@@ -8,9 +8,11 @@ const Header = observer(() => {
   
     return (
       <header className={styles.header}>
-        <div className={styles.title}>
-          Переводчик
+        <div className={styles.main}>
+          Translate2Win
         </div>
+
+        <div className={styles.title}> Русско-Мансийский Переводчик </div>
       </header>
     );
   });

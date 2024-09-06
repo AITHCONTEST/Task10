@@ -7,6 +7,7 @@ import translateService from "../service/translateService";
 import Loader from "./Loader";
 import CopyButt from "./CopyButt";
 import KeyboardButt from "./KeyboardButt";
+import langService from "../service/langService";
 
 const Translator = observer(() => {
     const [input, setInput] = useState<string>("");
@@ -29,14 +30,15 @@ const Translator = observer(() => {
             setOutput(result);
             setLoading(false);
         }
-        if(input && input.length){
+
+        if(input.length){
             translate();
         }
         else{
             setOutput("")
         }
         
-    }, [input, langStore.fromLang])
+    }, [input, output, langStore.fromLang])
 
     
 
@@ -54,9 +56,9 @@ const Translator = observer(() => {
     return(
         <div className={styles.translator} >
             <div className={styles.switcher}>
-                <div className={styles.switcher__lang}>{langStore.fromLang}</div>
+                <div className={styles.switcher__lang}>{langService.getNameByCode(langStore.fromLang)}</div>
                 <LangButt/>
-                <div className={styles.switcher__lang}>{langStore.toLang}</div>
+                <div className={styles.switcher__lang}>{langService.getNameByCode(langStore.toLang)}</div>
             </div>
             <div className={styles.container}>
                 <div className={styles.field}>

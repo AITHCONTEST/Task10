@@ -26,6 +26,10 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
     }, [cursor, textarea]);
     
     const handleKeyClick = (key: string) => {
+        if(textarea){
+        textarea.focus();
+        }
+
         if (key === 'Enter') {
             handleEnterKey();
         } 
@@ -115,7 +119,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
             const firstSpanElement:HTMLSpanElement | null = key.querySelector('span:first-child');
             if (firstSpanElement) {
                 const keyText = firstSpanElement.innerText.toLowerCase();
-                if (!['shift', 'alt', 'ctrl', 'enter', 'caps lock', 'tab'].
+                if (!['shift', 'alt', 'ctrl', 'enter', 'caps lock', 'tab', 'esc', 'backspace'].
                     includes(keyText)) {
                     firstSpanElement.innerText = 
                     ((updatedShift && isCaps) || (!updatedShift && !isCaps)) 
@@ -163,6 +167,21 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
             </div> */}
             <div className="keyboardcontainer">
                 <div className="container">
+                <div className="row row__mobile">
+                        {['Esc', 'ӯ', 'ē', 'ӈ', 'ы̄', 'а̄', 'о̄', 'э̄', 'я̄', 'ӣ', 'ю̄', '?_/', `"_'`,  'Shift',]
+                        .map((keyvalue) => (
+                            <div key={keyvalue} className='key' 
+                                 onClick={() => handleKeyClick(keyvalue)}>
+                                {keyvalue.includes('_') ? (
+                                    keyvalue.split('_').map((part, index) => (
+                                        <span key={index}>{part}</span>
+                                    ))
+                                ) : (
+                                    <span>{keyvalue}</span>
+                                )}
+                            </div>
+                        ))}
+                    </div>
                     <div className="row">
                         {['Esc', '~.`', '!.1', '@.2', '#.3', '$.4', '%.5', 
                         '^.6', '&.7', '*.8', '(.9', ').0', '_.-', '+.=', 
@@ -188,9 +207,9 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
                             </div>
                         ))}
                     </div>
+                    
                     <div className="row">
-                        {['Tab', 'й', 'ц', 'у', 'ӯ', 'к', 'е', 'ē', 'н', 'ӈ', 'г',
-                        'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]', '|_\\']
+                        {['Tab', 'й', 'ц', 'у', 'ӯ', 'к', 'е', 'ē', 'н', 'ӈ', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]', `"_'`]
                         .map((keyvalue) => (
                             <div key={keyvalue} className='key' 
                                  onClick={() => handleKeyClick(keyvalue)}>
@@ -205,8 +224,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
                         ))}
                     </div>
                     <div className="row">
-                        {['Caps Lock', 'ф', 'ы', 'ы̄', 'в', 'а', 'а̄', 'п', 'р', 'о', 'о̄', 'л', 'д', 
-                        'ж', 'э', 'э̄', ':_;', `"_'`, 'Enter']
+                        {['Caps Lock', 'ф', 'ы', 'ы̄', 'в', 'а', 'а̄', 'п', 'р', 'о', 'о̄', 'л', 'д', 'ж', 'э', 'э̄', ':_;', 'Enter']
                             .map((keyvalue) => (
                             <div key={keyvalue} className='key' 
                                  onClick={() => handleKeyClick(keyvalue)}>
@@ -221,8 +239,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
                         ))}
                     </div>
                     <div className="row">
-                        {['Shift', 'я', 'я̄', 'ч', 'с', 'м', 'и', 'ӣ', 'т', 'ь', 'б', 'ю', 'ю̄',
-                        '<_,', '>_.', '?_/', 'Shift'].map((keyvalue, index) => (
+                        {['Shift', 'я', 'я̄', 'ч', 'с', 'м', 'и', 'ӣ', 'т', 'ь', 'б', 'ю', 'ю̄', '<_,', '>_.', '?_/', 'Shift'].map((keyvalue, index) => (
                             <div key={index} className='key' 
                                  onClick={() => handleKeyClick(keyvalue)}>
                                 {keyvalue.includes('_') ? (

@@ -5,12 +5,13 @@
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    background-color: #7A7A7A;
-    color: black;
+    background-color: #dddddd;
+    color: var(--base-block);
     height: 5vh;
     width: 100%;
     position: fixed;
     bottom: 0;
+    box-shadow: 0 0 3px var(--base-block);
     
     .text{
         line-height: 4vh;

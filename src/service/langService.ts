@@ -7,9 +7,18 @@ class LangService implements ILangService{
     
     private static instance: LangService;
     private langStore: ILangStore;
+    private langs:{[key:string]:string};
 
     private constructor(langStore:ILangStore) {
         this.langStore = langStore;
+        this.langs = {
+            ru: "Русский",
+            mans: "Мансийский"
+        }
+        if(!langStore.getTolang() || !langStore.getFromlang()){
+            this.setLangs("ru", "mans")
+        }
+        
     }
 
     public static getInstance(themeStore:ILangStore): LangService {
@@ -21,6 +30,14 @@ class LangService implements ILangService{
 
     public toggleLang(): void {
         this.langStore.setLangs(langStore.getTolang(), langStore.getFromlang());
+    }
+
+    private setLangs(fromLang:string, toLang:string): void {
+        this.langStore.setLangs(fromLang, toLang);
+    }
+
+    public getNameByCode(code: string):string{
+        return this.langs[code];
     }
 
 }

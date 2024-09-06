@@ -3,21 +3,68 @@
 .header{
     font-family: "Noto Sans L";
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     align-items: center;
-    background-color: #7A7A7A;
+    background-color: #dddddd;
     height: 8vh;
     width: 100%;
+    color: var(--base-block);
+    box-shadow: 0 0 3px var(--base-block);
+    border-radius: 0 0 7px 7px ;
+   
+
     @include mobile {
-        height: 6vh;
+        height: 50px;
+        justify-content: center;
+        
     }
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--base-block);
+        border-radius: 4px;
+        color: #ffffff;
+        font-size: 14px;
+        cursor: pointer;
+        
+        padding: 1vh 2vw;
+        margin-left: 10vw;
+        
+        transition: background-color ease-in-out 0.15s;
+        flex-direction: row;
+        justify-content: space-around;
+        transform: rotateX(20deg);
+        box-shadow: 0 2px 1px black;
+
+        
+        
+        
+        &:hover {
+            background-color: var(--key-hover);
+        }
+        &:active {
+        
+        box-shadow:  none;
+        transform: translateY(2px);
+        }
+        @include mobile {
+            
+            margin-left: auto;
+        }
+    }
+
     .title{
         line-height: 8vh;
-        font-size: 4vh;
-        margin-left: 10vw;
+        font-size: 3vh;
+        
+        margin-left: 20px;
+
         @include mobile {
-            font-size: 3vh;
+            line-height: 4vh;
+            font-size: 14px;
             margin: auto;
         }
     }

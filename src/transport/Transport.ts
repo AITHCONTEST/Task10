@@ -16,6 +16,7 @@ class Transport implements ITransport{
         return Transport.instance;
     }
 
+
     public async post(text:string, from:string, to:string):Promise<string> {
         try {
             
@@ -42,4 +43,4 @@ class Transport implements ITransport{
     }
 }
 
-export default Transport.getInstance('http://localhost:8000')
+export default Transport.getInstance(import.meta.env.VITE_API_URL)
