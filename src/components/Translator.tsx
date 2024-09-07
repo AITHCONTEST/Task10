@@ -8,6 +8,7 @@ import Loader from "./Loader";
 import CopyButt from "./CopyButt";
 import KeyboardButt from "./KeyboardButt";
 import langService from "../service/langService";
+import ClearButt from "./ClearButt";
 
 const Translator = observer(() => {
     const [input, setInput] = useState<string>("");
@@ -76,7 +77,12 @@ const Translator = observer(() => {
                         </textarea>
                         <div className={styles.field__tools} >
                             <div>{input.length}/{maxLength}</div>
-                            <KeyboardButt get={()=>input} set={(newInput:string)=>{setInput(newInput)}} />
+                            <div className={styles.field__tools_wrap}>
+                                <KeyboardButt get={()=>input} set={(newInput:string)=>{setInput(newInput)}} />
+                                <ClearButt  tap={()=>{setInput("")}}/>
+                            </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -92,7 +98,13 @@ const Translator = observer(() => {
                         </textarea>
                         {loading && <Loader/>}
                         <div className={styles.field__tools} >
-                            <CopyButt targetRef={outputAreaRef}/>
+                            <div className={styles.field__tools_wrap}>
+                                <CopyButt targetRef={outputAreaRef}/>
+                            </div>
+
+                            <div className={styles.field__tools_wrap}>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>

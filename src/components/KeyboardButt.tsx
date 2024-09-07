@@ -1,8 +1,8 @@
-
-import styles from "./styles/button.module.scss"
 import keyboard from "../assets/keyboardNutt.svg";
 import { useState } from "react";
 import Keyboard from "./Keyboard";
+import Button from "./Button";
+import langStore from "../store/langStore";
 
 
 interface KeyboardButtProps{
@@ -23,9 +23,10 @@ const KeyboardButt = ({get, set}:KeyboardButtProps) => {
     
     return(
         <>
-            <div onClick={tap} className={styles.butt}>
-                <img src={keyboard} alt="keyboard" />
+            <div className={`${langStore.fromLang}`} style={{height:"100%"}}>
+               <Button img={keyboard} tap={tap}  alt={"keyboard"}/> 
             </div>
+            
             {isKeyboard && <Keyboard get={get} set={set} esc={tap}/>}
         </>
         

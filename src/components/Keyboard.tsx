@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./styles/keyboard.scss"
+import { observer } from "mobx-react-lite";
+import langStore from "../store/langStore";
 
 
 interface KeyboardProps{
@@ -8,7 +10,7 @@ interface KeyboardProps{
     esc: () => void;
 }
 
-export default function Keyboard({get, set, esc}:KeyboardProps) {
+const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
 
     
     const [isCaps, setIsCaps] = useState<boolean>(false);
@@ -17,11 +19,33 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
 
     const textarea = document.querySelector('textarea');
 
+    const keyboards:{[key: string]: string[][]} = {
+        'ru': [
+            [],
+            ['Esc', '~.`', '!.1', '@.2', '#.3', '$.4', '%.5', '^.6', '&.7', '*.8', '(.9', ').0', '_.-', '+.=', 'Backspace'],
+            ['Tab', 'ё', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]', '|_\\'],
+            ['Caps Lock', 'ф', 'ы',  'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э',  ':_;', `"_'`, 'Enter'],
+            ['Shift', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю',  '<_,', '>_.', '?_/', 'Shift'],
+            ['Ctrl', 'Alt', ' ', 'Ctrl', 'Alt']
+        ],
+
+        'mans':[
+            ['Esc', 'ӯ', 'ē', 'ӈ', 'ы̄', 'а̄', 'о̄', 'э̄', 'я̄', 'ӣ', 'ю̄', '?_/', `"_'`,  'Shift',],
+            ['Esc', '~.`', '!.1', '@.2', '#.3', '$.4', '%.5', '^.6', '&.7', '*.8', '(.9', ').0', '_.-', '+.=', 'Backspace'],
+            ['Tab', 'ё','й', 'ц', 'у', 'ӯ', 'к', 'е', 'ē', 'н', 'ӈ', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]', `"_'`],
+            ['Caps Lock', 'ф', 'ы', 'ы̄', 'в', 'а', 'а̄', 'п', 'р', 'о', 'о̄', 'л', 'д', 'ж', 'э', 'э̄', ':_;', 'Enter'],
+            ['Shift', 'я', 'я̄', 'ч', 'с', 'м', 'и', 'ӣ', 'т', 'ь', 'б', 'ю', 'ю̄', '<_,', '>_.', '?_/', 'Shift'],
+            ['Ctrl', 'Alt', ' ', 'Ctrl', 'Alt'/*, '<', '>'*/]
+        ]
+    }
+    console.log(keyboards[langStore.fromLang][1])
     useEffect(()=>{
         if(textarea){
             textarea.selectionStart = cursor;
             textarea.selectionEnd = cursor;
         }
+        
+        
         
     }, [cursor, textarea]);
     
@@ -161,14 +185,14 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
 
 
     return (
-        <div className='keyboard'>
+        <div className={`keyboard ${langStore.fromLang}`}>
             {/* <div className="textcontainer">
                 <pre>{inputText}</pre>
             </div> */}
             <div className="keyboardcontainer">
                 <div className="container">
                 <div className="row row__mobile">
-                        {['Esc', 'ӯ', 'ē', 'ӈ', 'ы̄', 'а̄', 'о̄', 'э̄', 'я̄', 'ӣ', 'ю̄', '?_/', `"_'`,  'Shift',]
+                        {keyboards[langStore.fromLang][0]
                         .map((keyvalue) => (
                             <div key={keyvalue} className='key' 
                                  onClick={() => handleKeyClick(keyvalue)}>
@@ -183,9 +207,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
                         ))}
                     </div>
                     <div className="row">
-                        {['Esc', '~.`', '!.1', '@.2', '#.3', '$.4', '%.5', 
-                        '^.6', '&.7', '*.8', '(.9', ').0', '_.-', '+.=', 
-                        'Backspace']
+                        {keyboards[langStore.fromLang][1]
                         .map((keyvalue) => 
                         (
                             <div key={keyvalue} className='key' 
@@ -209,7 +231,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
                     </div>
                     
                     <div className="row">
-                        {['Tab', 'й', 'ц', 'у', 'ӯ', 'к', 'е', 'ē', 'н', 'ӈ', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]', `"_'`]
+                        {keyboards[langStore.fromLang][2]
                         .map((keyvalue) => (
                             <div key={keyvalue} className='key' 
                                  onClick={() => handleKeyClick(keyvalue)}>
@@ -224,7 +246,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
                         ))}
                     </div>
                     <div className="row">
-                        {['Caps Lock', 'ф', 'ы', 'ы̄', 'в', 'а', 'а̄', 'п', 'р', 'о', 'о̄', 'л', 'д', 'ж', 'э', 'э̄', ':_;', 'Enter']
+                        {keyboards[langStore.fromLang][3]
                             .map((keyvalue) => (
                             <div key={keyvalue} className='key' 
                                  onClick={() => handleKeyClick(keyvalue)}>
@@ -239,7 +261,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
                         ))}
                     </div>
                     <div className="row">
-                        {['Shift', 'я', 'я̄', 'ч', 'с', 'м', 'и', 'ӣ', 'т', 'ь', 'б', 'ю', 'ю̄', '<_,', '>_.', '?_/', 'Shift'].map((keyvalue, index) => (
+                        {keyboards[langStore.fromLang][4].map((keyvalue, index) => (
                             <div key={index} className='key' 
                                  onClick={() => handleKeyClick(keyvalue)}>
                                 {keyvalue.includes('_') ? (
@@ -253,7 +275,7 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
                         ))}
                     </div>
                     <div className="row">
-                        {['Ctrl', 'Alt', ' ', 'Ctrl', 'Alt'/*, '<', '>'*/]
+                        {keyboards[langStore.fromLang][5]
                             .map((keyvalue, index) => (
                             <div key={index} className='key' 
                             onClick={() => handleKeyClick(keyvalue)}>
@@ -265,4 +287,6 @@ export default function Keyboard({get, set, esc}:KeyboardProps) {
             </div>
         </div>
     )
-}
+});
+
+export default Keyboard;

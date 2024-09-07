@@ -1,16 +1,16 @@
 import { observer } from "mobx-react-lite";
 import langService from "../service/langService";
-import styles from "./styles/button.module.scss"
 import toggle from "../assets/toggle.svg";
+import Button from "./Button";
 
 const LangButt = observer(() => {
     const tap = ()=>{
         langService.toggleLang();
     }    
     return(
-        <div onClick={tap} className={styles.butt}>
-            <img src={toggle} alt="<->" />
-        </div>
+        <>
+            <Button img={toggle} tap={tap}  alt={"<->"}/>
+        </>
     );
 });
 

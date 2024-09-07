@@ -1,5 +1,7 @@
 @import '../../styles/mixins/breakpoints.scss';
 
+
+
 .keyboard {
     position: fixed;
     bottom: 0;
@@ -183,3 +185,9 @@
     }
   }
   
+
+.ru{
+    @include mobile {
+      display: none;
+    }
+}
