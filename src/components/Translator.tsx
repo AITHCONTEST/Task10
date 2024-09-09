@@ -76,7 +76,7 @@ const Translator = observer(() => {
                            
                         </textarea>
                         <div className={styles.field__tools} >
-                            <div>{input.length}/{maxLength}</div>
+                            <div>{maxLength-input.length}/{maxLength}</div>
                             <div className={styles.field__tools_wrap}>
                                 <KeyboardButt get={()=>input} set={(newInput:string)=>{setInput(newInput)}} />
                                 <ClearButt  tap={()=>{setInput("")}}/>

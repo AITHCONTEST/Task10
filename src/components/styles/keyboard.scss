@@ -61,7 +61,8 @@
             color: #ffffff;
             font-size: 14px;
             cursor: pointer;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: "Noto Sans M";
+            // font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             transition: background-color ease-in-out 0.15s;
             flex-direction: row;
             justify-content: space-around;
@@ -85,13 +86,6 @@
 
             @include mobile {
               display: flex;
-              .key {
-                &:nth-last-child(2),
-                &:nth-last-child(3),
-                &:nth-last-child(4) {
-                  display: none;
-                }
-              }
               
 
             }
@@ -121,9 +115,12 @@
           &:nth-child(2) {
             .key {
               flex: auto;
-  
+              &:first-child {
+                width: calc(var(--key-width) * 1.5);
+                flex: auto;
+              }
               &:last-child {
-                width: calc(var(--key-width) * 4);
+                width: calc(var(--key-width) * 3);
               }
             }
           }

@@ -30,9 +30,9 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
         ],
 
         'mans':[
-            ['Esc', 'ӯ', 'ē', 'ӈ', 'ы̄', 'а̄', 'о̄', 'э̄', 'я̄', 'ӣ', 'ю̄', '?_/', `"_'`,  'Shift',],
-            ['Esc', '~.`', '!.1', '@.2', '#.3', '$.4', '%.5', '^.6', '&.7', '*.8', '(.9', ').0', '_.-', '+.=', 'Backspace'],
-            ['Tab', 'ё','й', 'ц', 'у', 'ӯ', 'к', 'е', 'ē', 'н', 'ӈ', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]', `"_'`],
+            ['Esc', 'а̄', 'ē', 'ё̄', 'ӣ', 'ӈ', 'о̄', 'ӯ', 'ы̄', 'э̄', 'я̄', 'ю̄', 'Shift',],
+            ['Esc', '~.`', '!.1', '@.2', '#.3', '$.4', '%.5', '^.6', '&.7', '*.8', '(.9', ').0', '_.-', '+.=', `".'`, 'Backspace'],
+            ['Tab', 'ё', 'ё̄', 'й', 'ц', 'у', 'ӯ', 'к', 'е', 'ē', 'н', 'ӈ', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]'],
             ['Caps Lock', 'ф', 'ы', 'ы̄', 'в', 'а', 'а̄', 'п', 'р', 'о', 'о̄', 'л', 'д', 'ж', 'э', 'э̄', ':_;', 'Enter'],
             ['Shift', 'я', 'я̄', 'ч', 'с', 'м', 'и', 'ӣ', 'т', 'ь', 'б', 'ю', 'ю̄', '<_,', '>_.', '?_/', 'Shift'],
             ['Ctrl', 'Alt', ' ', 'Ctrl', 'Alt'/*, '<', '>'*/]
@@ -43,6 +43,7 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
         if(textarea){
             textarea.selectionStart = cursor;
             textarea.selectionEnd = cursor;
+            textarea.focus();
         }
         
         
@@ -51,7 +52,7 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
     
     const handleKeyClick = (key: string) => {
         if(textarea){
-        textarea.focus();
+            textarea.focus();
         }
 
         if (key === 'Enter') {

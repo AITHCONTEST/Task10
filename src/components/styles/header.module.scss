@@ -40,7 +40,8 @@
         // box-shadow: 0 2px 1px black;
 
         
-        
+        display: none;
+
         
         &:hover {
             background-color: var(--key-hover);
@@ -50,10 +51,12 @@
         box-shadow:  none;
         transform: translateY(2px);
         }
-        @include mobile {
-            
-            margin-left: auto;
+
+        @include tablet {
+            display: none;
         }
+
+        
     }
 
     .title{
@@ -61,10 +64,10 @@
         font-size: 3vh;
         
         margin-left: 20px;
-
+        margin-left: 10vw;
         @include mobile {
             line-height: 4vh;
-            font-size: 14px;
+            font-size: 16px;
             margin: auto;
         }
     }
