@@ -1,7 +1,8 @@
 from fastapi import FastAPI, HTTPException
-from app.models import TranslationRequest, TranslationResponse
-from app.services import external_translation_service
+from models import TranslationRequest, TranslationResponse
+from services import external_translation_service
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
 app = FastAPI()
 
