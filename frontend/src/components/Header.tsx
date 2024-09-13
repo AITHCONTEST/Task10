@@ -16,7 +16,7 @@ const Header = observer(() => {
           Translate<span>2Win</span>
         </div>
 
-        <div className={styles.title}> Русско-Мансийский Переводчик </div>
+        {/* <div className={styles.title}> Русско-Мансийский Переводчик </div> */}
       </header>
     );
   });

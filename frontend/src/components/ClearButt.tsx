@@ -1,5 +1,6 @@
-import clearImg from "./../assets/clear.svg";
+import clearImg from "./../assets/new/clear.svg";
 import Button from "./Button";
+import styles from "./styles/buttons/clear.module.scss";
 
 interface ClearButtProps {
     tap: ()=>void;
@@ -8,9 +9,9 @@ interface ClearButtProps {
 const ClearButt = ({ tap }: ClearButtProps) => {
 
     return (
-        <>
+        <div className={styles.clear}>
             <Button img={clearImg} tap={tap}  alt={"copy"}/>
-        </>
+        </div>
         
     );
 };

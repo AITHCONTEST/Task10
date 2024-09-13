@@ -1,4 +1,4 @@
-import copyImg from "./../assets/copy.svg";
+import copyImg from "./../assets/new/copy.svg";
 import Button from "./Button";
 import React from "react";
 

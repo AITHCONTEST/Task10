@@ -20,7 +20,7 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
     const textarea = document.querySelector('textarea');
 
     const keyboards:{[key: string]: string[][]} = {
-        'ru': [
+        'rus': [
             [],
             ['Esc', '~.`', '!.1', '@.2', '#.3', '$.4', '%.5', '^.6', '&.7', '*.8', '(.9', ').0', '_.-', '+.=', 'Backspace'],
             ['Tab', 'ё', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]', '|_\\'],
@@ -29,7 +29,7 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
             ['Ctrl', 'Alt', ' ', 'Ctrl', 'Alt']
         ],
 
-        'mans':[
+        'man':[
             ['Esc', 'а̄', 'ē', 'ё̄', 'ӣ', 'ӈ', 'о̄', 'ӯ', 'ы̄', 'э̄', 'я̄', 'ю̄', 'Shift',],
             ['Esc', '~.`', '!.1', '@.2', '#.3', '$.4', '%.5', '^.6', '&.7', '*.8', '(.9', ').0', '_.-', '+.=', `".'`, 'Backspace'],
             ['Tab', 'ё', 'ё̄', 'й', 'ц', 'у', 'ӯ', 'к', 'е', 'ē', 'н', 'ӈ', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '{_[', '}_]'],
@@ -38,7 +38,6 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
             ['Ctrl', 'Alt', ' ', 'Ctrl', 'Alt'/*, '<', '>'*/]
         ]
     }
-    console.log(keyboards[langStore.fromLang][1])
     useEffect(()=>{
         if(textarea){
             textarea.selectionStart = cursor;
@@ -95,7 +94,7 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
             const firstSpanElement:HTMLSpanElement | null = key.querySelector('span:first-child');
             if (firstSpanElement) {
                 const keyText = firstSpanElement.innerText.toLowerCase();
-                if (!['shift', 'alt', 'ctrl', 'enter', 'caps lock', 'tab']
+                if (!['shift', 'alt', 'ctrl', 'enter', 'caps lock', 'tab', 'esc', 'backspace']
                     .includes(keyText)) {
                     firstSpanElement.innerText = 
                     ((updatedCaps && isShift) || (!updatedCaps && !isShift)) 
@@ -103,7 +102,7 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
                 }
                 if (keyText === 'caps lock') {
                     firstSpanElement.parentElement!.style.backgroundColor = 
-                    (updatedCaps) ? '#445760' : '#7A7A7A';
+                    (updatedCaps) ? 'white' : 'var(--butt-back)';
                 }
             }
         });
@@ -152,7 +151,7 @@ const Keyboard = observer(({get, set, esc}:KeyboardProps) => {
                 }
                 if (keyText === 'shift') {
                     firstSpanElement.parentElement!.style.backgroundColor = 
-                    (updatedShift) ? '#445760' : '#7A7A7A';
+                    (updatedShift) ? 'white' : 'var(--butt-back)';
                 }
             }
         });

@@ -1,4 +1,4 @@
-import keyboard from "../assets/keyboardNutt.svg";
+import keyboard from "../assets/new/keyboard.svg"
 import { useState } from "react";
 import Keyboard from "./Keyboard";
 import Button from "./Button";
