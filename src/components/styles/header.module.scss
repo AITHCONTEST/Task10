@@ -6,57 +6,23 @@
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
-    background-color: #dddddd;
-    height: 8vh;
     width: 100%;
-    color: var(--base-block);
-    box-shadow: 0 0 3px var(--base-block);
-    border-radius: 0 0 7px 7px ;
-   
+    gap: 10px;
+    padding: 30px;
 
-    @include mobile {
-        height: 50px;
-        justify-content: center;
-        
-    }
+    
 
     .main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--base-block);
+        
         border-radius: 4px;
-        color: #ffffff;
-        font-size: 14px;
-        cursor: pointer;
-        
-        padding: 1vh 2vw;
-        margin-left: 10vw;
-        
-        transition: background-color ease-in-out 0.15s;
-        flex-direction: row;
-        justify-content: space-around;
-        // transform: rotateX(20deg);
-        // box-shadow: 0 2px 1px black;
-
-        
-        display: none;
-
-        
-        &:hover {
-            background-color: var(--key-hover);
+        color: var(--dark-text);
+        font-size: 24px;
+        line-height: 140%;
+        letter-spacing: -3%;
+        span{
+            color: var(--base-text);
         }
-        &:active {
-        
-        box-shadow:  none;
-        transform: translateY(2px);
-        }
-
-        @include tablet {
-            display: none;
-        }
-
-        
+    
     }
 
     .title{
@@ -65,6 +31,7 @@
         
         margin-left: 20px;
         margin-left: 10vw;
+        display: none;
         @include mobile {
             line-height: 4vh;
             font-size: 16px;

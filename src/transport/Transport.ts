@@ -22,8 +22,8 @@ class Transport implements ITransport{
             
             const response = await axios.post(this.apiUrl + "/translate/", {
                 text: text,
-                source_language: from,
-                target_language: to
+                source_language: (from + '_Cyrl'),
+                target_language: (to + '_Cyrl')
               });
             return response.data.translated_text;
             // let newText = text;

@@ -51,6 +51,7 @@
         margin: 30px;
         margin-top: 0;
         gap: 15px;
+        position: relative;
 
         @include tablet {
             flex-direction: column;

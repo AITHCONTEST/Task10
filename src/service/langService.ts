@@ -12,11 +12,11 @@ class LangService implements ILangService{
     private constructor(langStore:ILangStore) {
         this.langStore = langStore;
         this.langs = {
-            ru: "Русский",
-            mans: "Мансийский"
+            "rus": "Русский",
+            "man": "Мансийский"
         }
         if(!langStore.getTolang() || !langStore.getFromlang()){
-            this.setLangs("ru", "mans")
+            this.setLangs("rus", "man");
         }
         
     }

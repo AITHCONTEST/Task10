@@ -12,7 +12,7 @@ class LangStore implements ILangStore{
     private constructor() {
         this.fromLang = "";
         this.toLang = "";
-        this.loadFromLocalStorage();
+        // this.loadFromLocalStorage();
         
         makeAutoObservable(this);
     }
@@ -43,17 +43,17 @@ class LangStore implements ILangStore{
         localStorage.setItem('toLang', this.toLang);
     }
 
-    private loadFromLocalStorage(): boolean {
-        const fromLang = localStorage.getItem('fromLang');
-        if (fromLang) {
-            this.fromLang = fromLang;
-        }
-        const toLang = localStorage.getItem('toLang');
-        if (toLang) {
-            this.toLang = toLang;
-        }
-        return !!fromLang && !!toLang;
-    }
+    // private loadFromLocalStorage(): boolean {
+    //     const fromLang = localStorage.getItem('fromLang');
+    //     if (fromLang) {
+    //         this.fromLang = fromLang;
+    //     }
+    //     const toLang = localStorage.getItem('toLang');
+    //     if (toLang) {
+    //         this.toLang = toLang;
+    //     }
+    //     return !!fromLang && !!toLang;
+    // }
 
 
 }

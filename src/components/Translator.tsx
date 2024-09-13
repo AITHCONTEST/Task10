@@ -56,13 +56,12 @@ const Translator = observer(() => {
 
     return(
         <div className={styles.translator} >
-            <div className={styles.switcher}>
-                <div className={styles.switcher__lang}>{langService.getNameByCode(langStore.fromLang)}</div>
-                <LangButt/>
-                <div className={styles.switcher__lang}>{langService.getNameByCode(langStore.toLang)}</div>
-            </div>
+            
             <div className={styles.container}>
+                <LangButt/>
                 <div className={styles.field}>
+                    <hr className={styles.field__hr}/>
+                    <div className={styles.switcher__lang}>{langService.getNameByCode(langStore.fromLang)}</div>
                     <hr className={styles.field__hr}/>
                     <div className={styles.field__wrapper} style={{marginLeft:"auto"}}>
                         <textarea
@@ -86,7 +85,12 @@ const Translator = observer(() => {
                         </div>
                     </div>
                 </div>
+
+
+
                 <div className={styles.field}>
+                    <hr className={styles.field__hr} />
+                    <div className={styles.switcher__lang}>{langService.getNameByCode(langStore.toLang)}</div>
                     <hr className={styles.field__hr} />
                     <div className={styles.field__wrapper} style={{marginRight:"auto"}}>
                         <textarea
