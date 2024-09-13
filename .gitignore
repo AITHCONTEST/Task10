@@ -154,7 +154,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-server_nllb/app/models/v2/nllb-rus-man-12250/pytorch_model.bin
+app/models/v2/nllb-rus-man-12250/pytorch_model.bin
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
