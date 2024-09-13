@@ -24,7 +24,7 @@
 
 Скачать репозиторий:
 ```
-git clone link_to_repo
+git clone https://github.com/AITHCONTEST/Task10.git
 ```
 
 Запустить решение:
