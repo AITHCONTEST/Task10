@@ -1,0 +1,23 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend/
+    ports:
+      - "3000:3000" 
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend/
+    ports:
+      - "8000:8000" 
+    depends_on:
+      - model
+
+  model:
+    build:
+      context: ./model/
+    ports:
+      - "8001:8000"

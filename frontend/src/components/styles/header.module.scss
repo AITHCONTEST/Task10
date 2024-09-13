@@ -1,0 +1,43 @@
+@import '../../styles/mixins/breakpoints.scss';
+
+.header{
+    font-family: "Noto Sans L";
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 30px;
+
+    
+
+    .main {
+        
+        border-radius: 4px;
+        color: var(--dark-text);
+        font-size: 24px;
+        line-height: 140%;
+        letter-spacing: -3%;
+        span{
+            color: var(--base-text);
+        }
+    
+    }
+
+    .title{
+        line-height: 8vh;
+        font-size: 3vh;
+        
+        margin-left: 20px;
+        margin-left: 10vw;
+        display: none;
+        @include mobile {
+            line-height: 4vh;
+            font-size: 16px;
+            margin: auto;
+        }
+    }
+    
+    
+}

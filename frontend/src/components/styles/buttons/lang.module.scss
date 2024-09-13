@@ -1,0 +1,12 @@
+.langButt{
+    transition: 'transform 0.7s ease';
+    height: 25px;
+    position: absolute;
+    inset: 20px calc(50vw - 56px) auto;
+    background-color: var(--butt-back);
+    border-radius: 12px;
+    padding: 16px;
+    height: 56px;
+    width: 56px;
+    box-sizing: border-box;
+}
