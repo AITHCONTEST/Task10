@@ -1,7 +1,9 @@
 
 FROM python:3.10-slim
 
-RUN apt-get update && apt-get install -y build-essential
+
+RUN apt-get update && apt-get install -y build-essential curl
+
 
 ENV PYTHONUNBUFFERED=1
 
@@ -13,6 +15,9 @@ RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 COPY ./app /app
+
+RUN curl -L -o /app/models/v2/nllb-rus-man-12250/pytorch_model.bin "https://www.dropbox.com/scl/fi/1zgedn0xxa9y5fx73g36u/pytorch_model.bin?rlkey=vjhrqjmo3in9cci1zdfdxl70c&e=4&st=r60k8d7f&dl=1"
+
 
 EXPOSE 8000
 
