@@ -10,7 +10,7 @@ const ClearButt = ({ tap }: ClearButtProps) => {
 
     return (
         <div className={styles.clear}>
-            <Button img={clearImg} tap={tap}  alt={"copy"}/>
+            <Button img={clearImg} tap={tap}  alt={"clear"}/>
         </div>
         
     );
