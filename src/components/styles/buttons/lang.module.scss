@@ -1,12 +1,25 @@
+@import '../../../styles/mixins/breakpoints.scss';
+
 .langButt{
-    transition: 'transform 0.7s ease';
-    height: 25px;
+    transition: transform 0.7s ease;
     position: absolute;
-    inset: 20px calc(50vw - 56px) auto;
+    inset: auto calc(50% - 25px) 20%;
     background-color: var(--butt-back);
     border-radius: 12px;
-    padding: 16px;
-    height: 56px;
-    width: 56px;
+    padding: 13px;
+    
     box-sizing: border-box;
+    z-index: 100;
+
+    @include tablet{
+        inset: 0 calc(50% - 25px) auto;
+        background-color: var(--output-back);
+        
+    }
+
+    @include mobile{
+        inset: 0 calc(50vw - 19px) auto;
+        padding: 9px;
+    }
+
 }
