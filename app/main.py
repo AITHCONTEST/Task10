@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from models import TranslationRequest, TranslationResponse
-from services import external_translation_service
+from services import external_translation_service, fetchNllb
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
@@ -25,7 +25,7 @@ async def root():
 async def translate(request: TranslationRequest):
     try:
         
-        translated_text = await external_translation_service(
+        translated_text = await fetchNllb(
             text=request.text,
             source_language=request.source_language,
             target_language=request.target_language
