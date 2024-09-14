@@ -10,6 +10,7 @@
     
     box-sizing: border-box;
     z-index: 100;
+    cursor: pointer;
 
     @include tablet{
         inset: 0 calc(50% - 25px) auto;

@@ -21,8 +21,8 @@ const LangButt = observer(() => {
         setIsActive(!isActive);
     }    
     return(
-        <div className={styles.langButt} style={dynamicStyle}>
-            <Button img={img} tap={tap}  alt={"<->"}/>
+        <div onClick={tap} className={styles.langButt} style={dynamicStyle}>
+            <Button img={img} tap={()=>{}}  alt={"<->"}/>
         </div>
     );
 });

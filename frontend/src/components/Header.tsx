@@ -1,7 +1,7 @@
 
 import { observer } from "mobx-react-lite";
 import styles from "./styles/header.module.scss"
-import MenuButt from "./MenuButt";
+import MenuButt from "./menu/MenuButt";
 
 
 const Header = observer(() => {

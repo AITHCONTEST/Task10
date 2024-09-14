@@ -11,6 +11,7 @@ import langService from "../service/langService";
 import ClearButt from "./ClearButt";
 import textStore from "../store/textStore";
 import textService from "../service/textService";
+import AddFavButt from "./AddFavButt";
 
 const Translator = observer(() => {
     // const [input, setInput] = useState<string>("");
@@ -107,6 +108,7 @@ const Translator = observer(() => {
                             <div className={styles.wordCount}>{maxLength-textStore.input.length}/{maxLength}</div>
                         </div>
                     </div>
+                    <hr className={styles.field__hr }  style={{ margin: 0}}/>
                 </div>
 
 
@@ -124,6 +126,7 @@ const Translator = observer(() => {
                             style={{backgroundColor: "transparent"}}
                         >
                         </textarea>
+                        {!!textStore.input && <AddFavButt/>}
                         {loading && <Loader/>}
                         <div className={styles.field__tools} >
                             <div className={styles.field__tools_wrap}>
