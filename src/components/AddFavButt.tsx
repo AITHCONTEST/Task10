@@ -5,13 +5,15 @@ import styles from "./styles/buttons/addFav.module.scss";
 import favsStore from "../store/favsStore";
 import textStore from "../store/textStore";
 import { useEffect, useState } from "react";
+import langStore from "../store/langStore";
 
 const AddFavButt = () => {
     const [isActive, setIsActive] = useState(false);
 
     useEffect(()=>{
         const text = textStore.getInput();
-        if(favsStore.exists(text)){
+        const lang = langStore.getFromlang();
+        if(favsStore.exists({lang, text})){
             setIsActive(true);
         }else{
             setIsActive(false);
@@ -21,10 +23,11 @@ const AddFavButt = () => {
     const tap = () => {
         setIsActive(!isActive);
         const text = textStore.getInput();
-        if(favsStore.exists(text)){
-            favsStore.remove(text)
+        const lang = langStore.getFromlang();
+        if(favsStore.exists({lang, text})){
+            favsStore.remove({lang, text})
         }else{
-            favsStore.add(text);
+            favsStore.add({lang, text});
         }
     }
     const dynamicStyle = {

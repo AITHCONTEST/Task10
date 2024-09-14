@@ -108,6 +108,7 @@ const Translator = observer(() => {
                             <div className={styles.wordCount}>{maxLength-textStore.input.length}/{maxLength}</div>
                         </div>
                     </div>
+                    <hr className={styles.field__hr }  style={{ margin: 0}}/>
                 </div>
 
 

@@ -1,11 +1,12 @@
 import { makeAutoObservable } from "mobx";
 import IFavsStore from "../model/favsStore";
+import FavsItem from "../model/favsItem";
 
 
 class FavsStore implements IFavsStore {
-  public items: string[] = ["Привет"];
+  public items: FavsItem[] = [{ lang: "rus", text: "Привет" }];
   private static instance: FavsStore;
-  private storageKey = "favsItems";
+  private storageKey = "FavsItems";
 
   private constructor() {
     this.loadFromLocalStorage();
@@ -19,25 +20,29 @@ class FavsStore implements IFavsStore {
     return FavsStore.instance;
   }
 
-
-  public exists(item: string): boolean {
-    return this.items.includes(item);
+  public exists(item: FavsItem): boolean {
+    return this.items.some(
+      (fav) => fav.lang === item.lang && fav.text === item.text
+    );
   }
 
-
-  public add(item: string): void {
-    const index = this.items.indexOf(item);
+  public add(item: FavsItem): void {
+    const index = this.items.findIndex(
+      (fav) => fav.lang === item.lang && fav.text === item.text
+    );
     if (index !== -1) {
-      this.items.splice(index, 1);
+      this.items.splice(index, 1); // Если элемент уже существует, удаляем его
     }
-    this.items.unshift(item);
+    this.items.unshift(item); // Добавляем элемент в начало
     this.saveToLocalStorage();
   }
 
-  public remove(item: string): void {
-    const index = this.items.indexOf(item);
+  public remove(item: FavsItem): void {
+    const index = this.items.findIndex(
+      (fav) => fav.lang === item.lang && fav.text === item.text
+    );
     if (index !== -1) {
-      this.items.splice(index, 1);
+      this.items.splice(index, 1); // Удаляем элемент
     }
     this.saveToLocalStorage();
   }
@@ -46,7 +51,6 @@ class FavsStore implements IFavsStore {
     localStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 
-  // Load the array from localStorage
   private loadFromLocalStorage(): void {
     const storedItems = localStorage.getItem(this.storageKey);
     if (storedItems) {
@@ -56,23 +60,3 @@ class FavsStore implements IFavsStore {
 }
 
 export default FavsStore.getInstance();
-
-
-    // private saveToLocalStorage(): void {
-    //     localStorage.setItem('fromLang', this.fromLang);
-    //     localStorage.setItem('toLang', this.toLang);
-    // }
-
-    // private loadFromLocalStorage(): boolean {
-    //     const fromLang = localStorage.getItem('fromLang');
-    //     if (fromLang) {
-    //         this.fromLang = fromLang;
-    //     }
-    //     const toLang = localStorage.getItem('toLang');
-    //     if (toLang) {
-    //         this.toLang = toLang;
-    //     }
-    //     return !!fromLang && !!toLang;
-    // }
-
-

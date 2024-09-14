@@ -18,11 +18,11 @@
         background-color: var(--output-back);
         padding: 10px 15px;
         border-radius: 12px;
-        line-height: 4vh;
-        font-size: 2vh;
+        line-height: 20px;
+        font-size: 14px;
         @include mobile {
-            line-height: 26px;
-            font-size: 14px;
+            line-height: 15px;
+            font-size: 10px;
         }
     }
     
