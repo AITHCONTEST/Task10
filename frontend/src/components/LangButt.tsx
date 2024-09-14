@@ -11,7 +11,7 @@ const LangButt = observer(() => {
     const [isActive, setIsActive] = useState(false);
 
     const dynamicStyle = {
-        transform: isActive ? 'rotateY(540deg)' : 'rotateY(0deg)',
+        transform: isActive ? 'rotateY(180deg)' : 'rotateY(0deg)',
         
     };
 

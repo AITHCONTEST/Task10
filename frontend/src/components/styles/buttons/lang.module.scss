@@ -1,7 +1,7 @@
 @import '../../../styles/mixins/breakpoints.scss';
 
 .langButt{
-    transition: transform 0.7s ease;
+    transition: transform 0.5s ease;
     position: absolute;
     inset: auto calc(50% - 25px) 20%;
     background-color: var(--butt-back);
