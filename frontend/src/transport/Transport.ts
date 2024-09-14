@@ -43,4 +43,4 @@ class Transport implements ITransport{
     }
 }
 
-export default Transport.getInstance(import.meta.env.VITE_API_URL)
+export default Transport.getInstance("http://localhost:8000")
